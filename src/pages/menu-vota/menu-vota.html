@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Menu Votacion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content align="center">
+  <br>
+  <br>
+  <br>
+  <br>
+  <input  class="miboton" type="submit" (click)="votoPlanta()" value="Votar por poner plantas " title="Votar por poner platas">
+  <br>
+  <input class="miboton" type="submit" (click)="votaMatafuego()" value="Votar por poner matafuegos" title="Votar por poner matafuegos">
+  <br>
+  <input class="miboton" type="submit" (click)="Grafico()" value="Resultado" title="resultado">
+ 
+  
+  <ion-card >  
+    <ion-card-header>
+      Resultados
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

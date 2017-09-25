@@ -28,14 +28,11 @@
 <span class="fontawesome-lock"></span>
 <input type="password" [(ngModel)]="password"  name="password" id="password" required placeholder="Contraseña"> 
 
-<input type="submit" (click)="login()" value="Login" title="Registra tu cuenta">
-<br>
-<input type="submit" (click)="Registrarse()" value="Registrar" title="Registra tu cuenta">
 
 
-<div padding>
+
     <ion-list>
-      <ion-item>
+      <ion-item class="miselect">
         <ion-label>Seleccione un Usuario...</ion-label>
         <ion-select  class="MiSelect" name="firstField" [(ngModel)]="tipoUser" (ionChange)="UserValido()">
           <ion-option value="usuario">Usuario</ion-option>
@@ -46,4 +43,8 @@
         </ion-select>
       </ion-item>
     </ion-list>
-  </div>
+
+    <input type="submit" (click)="login()" value="Login" title="Registra tu cuenta">
+    <br>
+    <input type="submit" (click)="Registrarse()" value="Registrar" title="Registra tu cuenta">
+  

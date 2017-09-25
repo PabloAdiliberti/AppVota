@@ -6,13 +6,8 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
-import { AlertController } from 'ionic-angular';
-/**
- * Generated class for the RegisterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { AlertController, LoadingController ,Loading} from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -24,7 +19,13 @@ export class RegisterPage {
   password:string;
   Mensaje:string;
   passwordconfirm:string;
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController,public navParams: NavParams,private _auth:AngularFireAuth) {
+  
+
+  constructor(public spiner:LoadingController,
+              public navCtrl: NavController,
+               public alertCtrl: AlertController,
+               public navParams: NavParams,
+               private _auth:AngularFireAuth) {
   }
 
   ionViewDidLoad() {
@@ -32,17 +33,21 @@ export class RegisterPage {
   }
   async Aceptar()
   {
-
+    
     if(this.password.length>5){
     if(this.password==this.passwordconfirm)
     try{
-      const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
-      this.Mensaje=this.username + " Fue ingresado Exitosamente!"
-      alert(this.Mensaje);
-      this.navCtrl.push(LoginPage);
+         this.MiSpiner();
+        const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
+    
+        this.Mensaje=this.username + " Fue ingresado Exitosamente!"
+        alert(this.Mensaje);
+        this.navCtrl.push(LoginPage);
       }
-      catch(e){
-      console.error(e);
+      catch(e)
+      {
+     
+        console.error(e);
         this.showAlert(e,"error al registrarse");
       }
     else
@@ -76,6 +81,17 @@ export class RegisterPage {
     });
     alert.present();
   }  
+
+  MiSpiner()
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 2500
+      
+    });
+      loader.present();
+    
+  }
 
 
   async Cancelar()

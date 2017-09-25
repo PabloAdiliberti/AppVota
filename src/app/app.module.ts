@@ -16,6 +16,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { MenuVotaPage } from '../pages/menu-vota/menu-vota';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC7nKNHYmBn6iihgdJXqeWi_3NJlzxul2U",
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MenuVotaPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MenuVotaPage
   ],
   providers: [
     StatusBar,
